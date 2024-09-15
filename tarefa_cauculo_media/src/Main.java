@@ -11,6 +11,14 @@ public class Main {
             somaNotas += sc.nextInt();
         }
 
-        System.out.println("A media é " + somaNotas / 4);
+        double mediaNotas = somaNotas / 4;
+
+        if (mediaNotas >= 7) {
+            System.out.println("Aprovado");
+        } else if (mediaNotas >= 5 && mediaNotas < 7) {
+            System.out.println("Recuperação");
+        } else {
+            System.out.println("Reprovado");
+        }
     }
 }
