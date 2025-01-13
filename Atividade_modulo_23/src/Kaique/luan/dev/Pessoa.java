@@ -1,3 +1,5 @@
+package Kaique.luan.dev;
+
 public class Pessoa {
     private String nome;
     private String sexo;

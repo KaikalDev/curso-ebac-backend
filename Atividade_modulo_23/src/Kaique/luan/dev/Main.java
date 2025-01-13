@@ -1,3 +1,5 @@
+package Kaique.luan.dev;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,11 +29,15 @@ public class Main {
             }
         } while (loop);
 
-        List<Pessoa> fem = pessoas.stream()
-                .filter(p -> p.getSexo().equalsIgnoreCase("feminino"))
-                .collect(Collectors.toList());
+        List<Pessoa> fem = FiltraFem(pessoas);
 
         System.out.println("Nomes femininos:");
         fem.forEach(p -> System.out.println(p.getNome()));
+    }
+
+    public static List<Pessoa> FiltraFem(List<Pessoa> pessoas) {
+        return  pessoas.stream()
+                    .filter(p -> p.getSexo().equalsIgnoreCase("feminino"))
+                    .collect(Collectors.toList());
     }
 }
