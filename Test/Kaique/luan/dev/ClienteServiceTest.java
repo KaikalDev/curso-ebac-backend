@@ -3,6 +3,7 @@ package Kaique.luan.dev;
 import Kaique.luan.dev.dao.ClienteDAOMock;
 import Kaique.luan.dev.dao.IClienteDAO;
 import Kaique.luan.dev.domain.Cliente;
+import Kaique.luan.dev.exeptions.TipoChaveNaoEncontradaException;
 import Kaique.luan.dev.services.ClienteService;
 import Kaique.luan.dev.services.IClienteService;
 import org.junit.Assert;
@@ -30,7 +31,6 @@ public class ClienteServiceTest {
         cliente.setEstado("PB");
         cliente.setNumero(10);
         cliente.setTel(99999999999L);
-        clienteService.salvar(cliente);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class ClienteServiceTest {
     }
 
     @Test
-    public void salvarCliente() {
+    public void salvarCliente() throws TipoChaveNaoEncontradaException {
         Boolean retorno = clienteService.salvar(cliente);
 
         Assert.assertTrue(retorno);
@@ -50,5 +50,13 @@ public class ClienteServiceTest {
     @Test
     public void excluirCliente() {
         clienteService.excluir(cliente.getCpf());
+    }
+
+    @Test
+    public void alterarCliente() throws TipoChaveNaoEncontradaException {
+        cliente.setNome("Kaique Luan");
+        clienteService.alterar(cliente);
+
+        Assert.assertEquals("Kaique Luan", cliente.getNome());
     }
 }

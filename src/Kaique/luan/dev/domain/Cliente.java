@@ -1,6 +1,6 @@
 package Kaique.luan.dev.domain;
 
-public class Cliente {
+public class Cliente extends Persistente {
     private String nome;
     private Long cpf;
     private Long tel;

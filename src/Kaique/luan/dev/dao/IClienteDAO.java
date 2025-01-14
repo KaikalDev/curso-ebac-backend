@@ -1,11 +1,7 @@
 package Kaique.luan.dev.dao;
 
 import Kaique.luan.dev.domain.Cliente;
+import Kaique.luan.dev.generic.IGenericDAO;
 
-public interface IClienteDAO {
-    Boolean salvar(Cliente cliente);
-
-    Cliente buscarPorCpf(Long cpf);
-
-    void excluir(Long cpf);
+public interface IClienteDAO extends IGenericDAO<Cliente> {
 }
