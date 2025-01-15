@@ -1,4 +1,4 @@
-package Kaique.luan.dev.generic;
+package Kaique.luan.dev.dao.generic;
 
 import Kaique.luan.dev.domain.Persistente;
 import Kaique.luan.dev.exeptions.TipoChaveNaoEncontradaException;

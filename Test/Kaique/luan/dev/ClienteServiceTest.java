@@ -35,14 +35,14 @@ public class ClienteServiceTest {
 
     @Test
     public void pesquisarCliente() {
-        Cliente clienteConsulta = clienteService.buscarPorCpf(cliente.getCpf());
+        Cliente clienteConsulta = clienteService.consultar(cliente.getCpf());
 
         Assert.assertNotNull(clienteConsulta);
     }
 
     @Test
     public void salvarCliente() throws TipoChaveNaoEncontradaException {
-        Boolean retorno = clienteService.salvar(cliente);
+        Boolean retorno = clienteService.cadastrar(cliente);
 
         Assert.assertTrue(retorno);
     }

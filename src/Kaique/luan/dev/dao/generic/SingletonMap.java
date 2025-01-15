@@ -1,4 +1,4 @@
-package Kaique.luan.dev.generic;
+package Kaique.luan.dev.dao.generic;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -2,34 +2,27 @@ package Kaique.luan.dev.services;
 
 import Kaique.luan.dev.dao.ClienteDAO;
 import Kaique.luan.dev.dao.IClienteDAO;
+import Kaique.luan.dev.dao.generic.IGenericDAO;
 import Kaique.luan.dev.domain.Cliente;
 import Kaique.luan.dev.exeptions.TipoChaveNaoEncontradaException;
+import Kaique.luan.dev.services.generic.GenericSevice;
 
-public class ClienteService implements IClienteService{
+import java.util.Collection;
+import java.util.List;
 
-    private IClienteDAO clienteDAO;
+public class ClienteService extends GenericSevice<Cliente> implements IClienteService {
 
-    public ClienteService(IClienteDAO clienteDAO) {
-        this.clienteDAO = clienteDAO;
+    public ClienteService(IGenericDAO dao) {
+        super(dao);
     }
 
     @Override
-    public Boolean salvar(Cliente cliente) throws TipoChaveNaoEncontradaException {
-        return clienteDAO.cadastrar(cliente);
+    public Class<Cliente> getTipoClasse() {
+        return Cliente.class;
     }
 
     @Override
-    public Cliente buscarPorCpf(Long cpf) {
-        return clienteDAO.consultar(cpf);
-    }
+    public void atualiarDados(Cliente entity, Cliente entityCadastrado) {
 
-    @Override
-    public void excluir(Long cpf) {
-        clienteDAO.excluir(cpf);
-    }
-
-    @Override
-    public void alterar(Cliente cliente) throws TipoChaveNaoEncontradaException {
-        clienteDAO.alterar(cliente);
     }
 }
